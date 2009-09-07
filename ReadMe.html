@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+
+        <title>EC2 PERL Library</title>
+        <style type="text/css">
+            body, div, p, td, th {
+                font-family : helvetica,sans-serif, arial;
+                font-size : 12px;
+                color : #000000;
+            }
+
+            .aws-h1, h1{
+                font-family: verdana, arial, helvetica, sans-serif;
+                font-size: 18px;
+                font-weight: bold;
+                color: #000000;
+            }
+            .aws-h2, h2{
+                font-family: verdana, arial, helvetica, sans-serif;
+                font-size: 14px;
+                color: #c60;
+            }
+            .aws-h3, h3{
+                font-family: verdana, arial, helvetica, sans-serif;
+                font-size: 12px;
+                font-weight: bold;
+                color: #333333;
+            }
+
+            /*table ID selector styles*/
+            #aws-table {
+                border-top: 1px solid #cccccc;
+                border-left: 1px solid #cccccc;
+                width:95%;
+            }
+
+            #aws-table td{
+                font-size: 12px;
+                padding: 5px 5px 5px 5px;
+                border-bottom: 1px solid #cccccc;
+                border-right: 1px solid #cccccc;
+                vertical-align:top;
+            }
+
+            #aws-table th {
+                font-size: 12px;
+                padding: 5px 5px 5px 5px;
+                border-bottom: 1px solid #cccccc;
+                border-right: 1px solid #cccccc;
+                vertical-align:top;
+                background-color: #eeeeee;
+                color: #333333;
+                font-size: 12px;
+                font-weight: bold;
+                text-align: left;
+            }
+
+            /*code, note, and example styles*/
+            pre {
+                font-family: "Courier New", Courier, mono;
+                font-size: 12px;
+                margin-top: 5px;
+                margin-bottom: 5px;
+                color: #000066;
+                padding: 5px;
+                background-color: #eff7ff;
+                border: 1px dashed #333;
+                width:75%;
+                display:block;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h2>About this Library</h2>
+        <ul><li>Based on the 2009-07-15 API version.</li></ul>
+        <h2>What&#39;s New?</h2>
+        <ul>
+            <li><b>2009-08-25</b>:
+                <ul>
+                    <li>Support for VPC API</li>
+                </ul>
+            </li>
+            <li><b>2009-05-17</b>:
+                <ul>
+                    <li>Support for monitoring API</li>
+                </ul>
+            </li>
+            <li><b>2009-04-09</b>:
+                <ul>
+                    <li>Support for reserved instances API</li>
+                </ul>
+            </li>
+            <li><b>2008-12-26</b>:
+                <ul>
+                    <li>Url and utf8 encoding fix for signature version 2</li>
+                </ul>
+            </li>
+            <li><b>2008-12-17</b>:
+                <ul>
+                    <li>Support for regions, signature version 2, https endpoint</li>
+                </ul>
+            </li>
+            <li><b>2008-10-21</b>:
+                <ul>
+                    <li>Support for Windows Bundling, new API version - 2008-08-08</li>
+                </ul>
+            </li>
+            <li><b>2008-08-20</b>:
+            <ul>
+                <li>Initial release, support for Amazon Elastic Block Store</li>
+            </ul>
+        </ul>
+        <h2>Prerequisites</h2>
+
+        <ul>
+            <li>Amazon EC2 account (<a href="http://aws.amazon.com/ec2">http://aws.amazon.com/ec2</a>).</li>
+            <li>Perl 5.6.0 or newer (<a href="http://www.perl.org/">http://www.perl.org/</a>)</li>
+            <li>Depending on the version of PERL you are using, you may need to install additional packages.
+                To install additional packages, run following command:
+                <ul>
+                    <li>perl -MCPAN -e 'install Digest::SHA'</li>
+                    <li>perl -MCPAN -e 'install XML::Simple'</li>
+                    <li>perl -MCPAN -e 'install Bundle::LWP'</li>
+                    <li>perl -MCPAN -e 'install XML::LibXSLT'</li>
+                    <li>perl -MCPAN -e 'install Crypt::SSLeay'</li>
+                </ul>
+
+            </li>
+
+        </ul>
+
+        <h2>Package Content</h2>
+
+        <table id="aws-table">
+
+            <tbody>
+                <tr>
+                    <th>Directory</th>
+                    <th>Overview</th>
+                </tr>
+
+                <tr>
+                    <td>
+                        src
+                    </td>
+                    <td>
+                        Source distribution of library.
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+
+
+        <h2>Quick Start</h2>
+
+        Library comes with code samples for each available service API.
+        To get started with the library, follow these steps:
+        <ol>
+            <li>Extract the <strong>amazon-ec2-2009-07-15-perl-library.zip</strong> file into a working directory.</li>
+            <li>Edit desired sample. For example: <b>src/Amazon/EC2/Samples/DescribeImagesSample.pl</b></li>
+            <br/>
+            <br/>
+
+            <ul>
+                <li>Set AWS Access Key ID and AWS Secret Access Key</li>
+                <pre>
+ my $AWS_ACCESS_KEY_ID        = "&lt;Your Access Key ID&gt;";
+ my $AWS_SECRET_ACCESS_KEY    = "&lt;Your Secret Access Key&gt;";
+                </pre>
+            </ul>
+            <br/>
+            <br/>
+            <ul>
+                <li>Set request parameters. For example, find following pre-generated snippet:</li>
+                <pre>
+ use Amazon::EC2::Model::DescribeImagesRequest;
+ # @TODO: set action. Action can be passed as Amazon::EC2::Model::DescribeImagesRequest
+ # object or hash of parameters
+ # invokeDescribeImages($service, $request);
+                </pre>
+            </ul>
+            <br/>
+            <br/>
+            <ul>
+                <li>And set action with ImageId parameter:</li>
+
+                <pre>
+ use Amazon::EC2::Model::DescribeImages;
+ my $request = Amazon::EC2::Model::DescribeImagesRequest->new;
+ invokeDescribeImages($service, $request->withImageId("ami-be3adfd7"));
+                </pre>
+
+            </ul>
+            <br/>
+
+            <li>Run DescribeImages sample:</li>
+            <pre>
+   perl src/Amazon/EC2/Samples/DescribeImagesSample.pl
+            </pre>
+
+            <li>You should see the output
+            similar to the following:</li>
+            <br/>
+            <br/>
+            <pre>
+    DescribeImagesResponse
+        DescribeImagesResult
+            Image
+                ImageId
+                    ami-be3adfd7
+                ImageLocation
+                    ec2-public-images/fedora-8-i386-base-v1.04.manifest.xml
+                ImageState
+                    available
+                KernelId
+                    aki-4438dd2d
+                RamdiskId
+                    ari-4538dd2c
+                ...
+            </pre>
+            <br/>
+            <li>Experiment with samples. When ready, install library in the perl include path and use it. <p/></li>
+        </ol>
+
+        <h2>Notes</h2>
+        You can use alternative hash-based interface with the library. For example, instead of:
+        <p/>
+        <pre>
+    my $request = Amazon::EC2::Model::DescribeImagesRequest->new;
+    $request->setImageId("ami-be3adfd7");
+    my $response = $service->describeImages($request);
+        </pre>
+
+        You can write:
+        <pre>
+    my $response = $service->describeImages({ImageId => "ami-be3adfd7"});
+        </pre>
+
+        <p/>
+        <strong>Happy coding!</strong>
+        <h2>Comments, Questions or Feedback</h2>
+
+        If you have any comments, questions or feedback on the library, please start discussion here.
+    </body>
+</html>
