@@ -1,0 +1,32 @@
+---
+author:
+  - 'Amazon AWS'
+build_requires:
+  ExtUtils::MakeMaker: 6.42
+configure_requires:
+  ExtUtils::MakeMaker: 6.42
+distribution_type: module
+generated_by: 'Module::Install version 0.91'
+license: 'Apache License 2.0'
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Amazon-EC2
+no_index:
+  directory:
+    - inc
+    - t
+requires:
+  Carp: 0
+  Cwd: 0
+  Digest::SHA: 0
+  File::Basename: 0
+  File::LibXSLT: 0
+  LWP::UserAgent: 0
+  Test::More: 0.92
+  Time::HiRes: 0
+  URI: 0
+  URI::Escape: 0
+  XML::LibXML: 0
+  XML::Simple: 0
+  perl: 5.8.5
