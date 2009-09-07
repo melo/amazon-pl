@@ -1,5 +1,7 @@
 use inc::Module::Install;
+
 name 'Amazon-EC2';
+version '2009.07.15';
 author 'Amazon AWS';
 perl_version '5.8.5';
 license 'Apache License 2.0';

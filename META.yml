@@ -30,3 +30,4 @@ requires:
   XML::LibXML: 0
   XML::Simple: 0
   perl: 5.8.5
+version: 2009.07.15
