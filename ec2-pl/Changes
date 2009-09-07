@@ -1,0 +1,6 @@
+# Changes for Amazon::EC2
+
+2009.07.15 2009-09-07 16:34:12
+    * imported version 2009/07/15
+    * moved stuff around to make it look like a perl module
+
