@@ -18,6 +18,7 @@ no_index:
     - t
 requires:
   Carp: 0
+  Crypt::SSLeay: 0
   Cwd: 0
   Digest::SHA: 0
   File::Basename: 0

@@ -8,6 +8,7 @@ license 'Apache License 2.0';
  
 requires 'Carp';
 requires 'Cwd';
+requires 'Crypt::SSLeay';
 requires 'Digest::SHA';
 requires 'File::Basename';
 requires 'File::LibXSLT';
